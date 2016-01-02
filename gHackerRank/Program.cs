@@ -13,12 +13,15 @@ namespace Solution
 			for (int i = 0; i < num; i++)
 			{
 				string input = Console.ReadLine();
-				MinimumDraws(input);
-				
 			}
 
 			Console.ReadKey();
 		}
 
+		public static List<T> convertToList<T>(string input, Func<string, T> converter)
+		{
+			List<T> l = input.Split(' ').ToList().Select(item => converter(item)).ToList();
+			return l;
+		}
 	}
 }

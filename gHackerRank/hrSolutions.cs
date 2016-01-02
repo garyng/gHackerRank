@@ -7,7 +7,8 @@ namespace Solution
 {
 	public static class hrSolutions
 	{
-		//Given two points P and Q, output the symmetric point of point P about Q.
+		//The first line contains an integer T representing the number of testcases 
+		//Each test case is a line containing four space separated integers Px Py Qx Qy representing the (x,y) coordinates of P and Q.
 		static public void FindPoint(string input)
 		{
 			List<int> points = input.Split(' ').ToList().Select(item => int.Parse(item)).ToList();
@@ -16,13 +17,25 @@ namespace Solution
 			Console.WriteLine(x + " " + y);
 		}
 
-		//Jim is off to a party and is searching for a matching pair of socks. 
-		//His drawer is filled with socks, each pair of a different color. 
-		//In its worst case scenario, how many socks (x) should Jim remove from his drawer until he finds a matching pair?
+		//The first line contains the number of test cases T. 
+		//Next T lines contains an integer N which indicates the total pairs of socks present in the drawer.
 		static public void MinimumDraws(string input)
 		{
 			int num = int.Parse(input);
 			Console.WriteLine(num + 1);
+		}
+
+		//First line contains integers L,S1,S2. 
+		//Next line contains Q, the number of queries. 
+		//Each of the next Q lines consists of one integer qi in one line.
+		public static void SherlockAndMovingTiles(string input, int speed1, int speed2, int length)
+		{
+
+			double area = double.Parse(input);
+			double p = (speed1 - speed2) / Math.Sqrt(2);
+			double a = Math.Sqrt(area);
+			double t = (a - (double)length) / p;
+			Console.WriteLine(Math.Abs(t));
 		}
 
 	}
