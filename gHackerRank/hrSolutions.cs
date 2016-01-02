@@ -9,7 +9,7 @@ namespace Solution
 	{
 		//The first line contains an integer T representing the number of testcases 
 		//Each test case is a line containing four space separated integers Px Py Qx Qy representing the (x,y) coordinates of P and Q.
-		static public void FindPoint(string input)
+		public static void FindPoint(string input)
 		{
 			List<int> points = input.Split(' ').ToList().Select(item => int.Parse(item)).ToList();
 			int x = points[2] * 2 - points[0];
@@ -19,7 +19,7 @@ namespace Solution
 
 		//The first line contains the number of test cases T. 
 		//Next T lines contains an integer N which indicates the total pairs of socks present in the drawer.
-		static public void MinimumDraws(string input)
+		public static void MinimumDraws(string input)
 		{
 			int num = int.Parse(input);
 			Console.WriteLine(num + 1);
@@ -38,5 +38,38 @@ namespace Solution
 			Console.WriteLine(Math.Abs(t));
 		}
 
+		//The first line contains an integer, T, followed by T lines, each containing 4 space separated integers i.e. a b x y
+		public static void PossiblePath(string input)
+		{
+			List<int> l = convertToList(input, new Func<string, int>((x) => int.Parse(x)));
+			Console.WriteLine(GCD(l[0], l[1]) == GCD(l[2], l[3]) ? "YES" : "NO");
+		}
+
+		#region Helper Functions
+
+		public static int GCD(int a, int b)
+		{
+			int x = a;
+			int y = b;
+			int temp = 0;
+
+			while (y != 0)
+			{
+				temp = x;
+				x = y;
+				y = temp % y;
+
+			}
+
+			return x;
+		}
+
+		public static List<T> convertToList<T>(string input, Func<string, T> converter)
+		{
+			List<T> l = input.Split(' ').ToList().Select(item => converter(item)).ToList();
+			return l;
+		}
+
+		#endregion
 	}
 }
