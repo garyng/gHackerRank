@@ -7,6 +7,10 @@ namespace Solution
 {
 	public static class hrSolutions
 	{
+		public static Func<string, int> converter = new Func<string, int>((item) => int.Parse(item));
+
+		#region Solutions
+		
 		//The first line contains an integer T representing the number of testcases 
 		//Each test case is a line containing four space separated integers Px Py Qx Qy representing the (x,y) coordinates of P and Q.
 		public static void FindPoint(string input)
@@ -44,6 +48,18 @@ namespace Solution
 			List<int> l = convertToList(input, new Func<string, int>((x) => int.Parse(x)));
 			Console.WriteLine(GCD(l[0], l[1]) == GCD(l[2], l[3]) ? "YES" : "NO");
 		}
+
+		//The first line contains an integer T. T lines follow. 
+		//Each line contains two space separated integers l and b which denote length and breadth of the bread.
+		public static void Restaurant(string input)
+		{
+			List<int> l = convertToList(input, converter);
+			int largest = GCD(l[0], l[1]);
+			int num = l[0] * l[1] / (largest * largest);
+			Console.WriteLine(num);
+		}
+
+		#endregion
 
 		#region Helper Functions
 

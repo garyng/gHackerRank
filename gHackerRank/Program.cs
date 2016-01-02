@@ -7,6 +7,7 @@ namespace Solution
 {
 	class Program
 	{
+		public static Func<string, int> converter = new Func<string, int>((item) => int.Parse(item));
 		static void Main(string[] args)
 		{
 			int num = int.Parse(Console.ReadLine());
@@ -18,6 +19,7 @@ namespace Solution
 			Console.ReadKey();
 		}
 
+	
 		public static List<T> convertToList<T>(string input, Func<string, T> converter)
 		{
 			List<T> l = input.Split(' ').ToList().Select(item => converter(item)).ToList();
