@@ -89,6 +89,29 @@ namespace Solution
 
 		}
 
+		public static void ReverseGame(string input)
+		{
+			//The first line contains an integer T, i.e., the number of the test cases. 
+			//The next T lines will contain two integers N and K.
+
+			List<int> v = convertToList(input, converter);
+			int length = v[0]; //7
+			int num = v[1];  //0
+			int i = 0;
+			int startIndex = 0;
+
+			while (true)
+			{
+				num = length + i - 1 - num;
+				startIndex = i;
+				if (num == startIndex)
+				{
+					break;
+				}
+				i++;
+			}
+			Console.WriteLine(num);
+		}
 
 		#endregion
 
