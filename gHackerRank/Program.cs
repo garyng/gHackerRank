@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Numerics;
+using System.Collections;
+using System.Net;
 
 namespace Solution
 {
@@ -11,12 +13,6 @@ namespace Solution
 		public static Func<string, int> converter = new Func<string, int>((item) => int.Parse(item));
 		static void Main(string[] args)
 		{
-			List<long> fibCache = cacheFibonacci(100);
-			for (int i = 2; i < 100; i++)
-			{
-				fibCache.Add(fibCache[i - 1] + fibCache[i - 2]);
-			}
-
 
 			int num = int.Parse(Console.ReadLine());
 			for (int i = 0; i < num; i++)
@@ -25,6 +21,9 @@ namespace Solution
 			}
 			Console.ReadKey();
 		}
+
+
+
 
 		public static List<T> convertToList<T>(string input, Func<string, T> converter)
 		{

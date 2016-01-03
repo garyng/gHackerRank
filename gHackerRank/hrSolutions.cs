@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -122,11 +123,65 @@ namespace Solution
 			Console.WriteLine(sum);
 		}
 
+		public static void euler003(string input)
+		{
+			//First line contains T, the number of test cases. This is followed by T lines each containing an integer N.
+			//Find largest prime factor
+
+			long num = long.Parse(input);
+			long largest = 1;
+
+
+			long i = 2;
+			while (i * i <= num)
+			{
+				if (num % i == 0)
+				{
+					num = num / i;
+					largest = i;
+				}
+				else
+				{
+					i = i == 2 ? 3 : i + 2;
+				}
+			}
+			if (num > i)
+			{
+				largest = num;
+			}
+
+			Console.WriteLine(largest);
+		}
+
 		#endregion
 
 		#endregion
 
 		#region Helper Functions
+
+		public static List<int> ESieve(int max)
+		{
+			BitArray baSeive = new BitArray(max - 1);
+			List<int> primes = new List<int>();
+			for (int i = 2; i < baSeive.Count + 2; i++)
+			{
+				if (baSeive.Get(i - 2) == false)
+				{
+					for (int j = i + i; j <= max; j += i)
+					{
+						baSeive.Set(j - 2, true);
+					}
+				}
+			}
+			for (int i = 0; i < baSeive.Count; i++)
+			{
+				if (baSeive.Get(i) == false)
+				{
+					primes.Add(i + 2);
+				}
+			}
+			return primes;
+		}
 
 		public static List<long> cacheFibonacci(int n)
 		{
