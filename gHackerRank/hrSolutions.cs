@@ -174,6 +174,18 @@ namespace Solution
 
 		}
 
+		public static void SummingTheNSeries(string input)
+		{
+			//The first line of input contains T, the number of test cases.
+			//Each test case consists of one line containing a single integer n.
+
+			BigInteger num = BigInteger.Parse(input);
+			BigInteger r = BigInteger.Pow(num, 2);
+			BigInteger rem;
+			BigInteger.DivRem(r, 1000000007, out rem);
+			Console.WriteLine(rem);
+		}
+
 		#endregion
 
 		#region Project Euler
