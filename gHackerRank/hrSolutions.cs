@@ -80,6 +80,16 @@ namespace Solution
 			Console.WriteLine(mul);
 		}
 
+		public static void Handshake(string input)
+		{
+			//The first line contains the number of test cases T, T lines follow. 
+			//Each line then contains an integer N, the total number of Board of Directors of Acme.
+			int num = int.Parse(input);
+			Console.WriteLine(arithmeticSum(1, 1, num - 1));
+
+		}
+
+
 		#endregion
 
 		#region Project Euler
