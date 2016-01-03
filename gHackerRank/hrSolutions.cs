@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 
 namespace Solution
@@ -10,7 +11,9 @@ namespace Solution
 		public static Func<string, int> converter = new Func<string, int>((item) => int.Parse(item));
 
 		#region Solutions
-		
+
+		#region Mathematic>Fundamentals
+
 		//The first line contains an integer T representing the number of testcases 
 		//Each test case is a line containing four space separated integers Px Py Qx Qy representing the (x,y) coordinates of P and Q.
 		public static void FindPoint(string input)
@@ -71,10 +74,44 @@ namespace Solution
 			Console.WriteLine(mul);
 		}
 
+		#endregion
+
+
+		#region Project Euler
+
+		public static void euler001(string input)
+		{
+			BigInteger max = BigInteger.Parse(input) - 1;
+			BigInteger mul1 = 3;
+			BigInteger mul2 = 5;
+			BigInteger mul3 = mul1 * mul2;
+
+			BigInteger o;
+
+			BigInteger mul1N = BigInteger.DivRem(max, mul1, out o);
+			BigInteger mul1Sum = arithmeticSum(mul1, mul1, mul1N);
+
+			BigInteger mul2N = BigInteger.DivRem(max, mul2, out o);
+			BigInteger mul2Sum = arithmeticSum(mul2, mul2, mul2N);
+
+			BigInteger mul3N = BigInteger.DivRem(max, mul3, out o);
+			BigInteger mul3Sum = arithmeticSum(mul3, mul3, mul3N);
+
+			Console.WriteLine(mul1Sum + mul2Sum - mul3Sum);
+
+		}
+
+		#endregion
 
 		#endregion
 
 		#region Helper Functions
+
+		public static BigInteger arithmeticSum(BigInteger a, BigInteger d, BigInteger n)
+		{
+			BigInteger tN = a + (n - 1) * d;
+			return (a + tN) * n / 2;
+		}
 
 		public static int GCD(int a, int b)
 		{

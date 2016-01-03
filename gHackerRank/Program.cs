@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Numerics;
 
 namespace Solution
 {
@@ -15,10 +16,11 @@ namespace Solution
 			{
 				string input = Console.ReadLine();
 			}
-
 			Console.ReadKey();
 		}
 
+
+	
 
 		public static List<T> convertToList<T>(string input, Func<string, T> converter)
 		{
