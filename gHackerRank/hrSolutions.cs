@@ -130,6 +130,34 @@ namespace Solution
 
 		}
 
+		public static void SherlockAndDivisors(string input)
+		{
+			//First line contains T, the number of testcases. This is followed by T lines each containing an integer N.
+
+			long num = long.Parse(input);
+			Dictionary<long, long> factors = findPrimeFactors(num);
+
+			long noOfPow2;
+			if (factors.TryGetValue(2, out noOfPow2))
+			{
+				if (factors.Count == 1) //Only Power of 2
+				{
+					Console.WriteLine(noOfPow2);
+				}
+				else
+				{
+					long all = findFactorsCount(factors);
+					factors.Remove(2);
+					long odd = findFactorsCount(factors);
+					Console.WriteLine(all - odd);
+				}
+			}
+			else
+			{
+				Console.WriteLine("0");
+			}
+
+		}
 
 		#endregion
 
@@ -193,10 +221,10 @@ namespace Solution
 				}
 				else
 				{
-					i = i == 2 ? 3 : i + 2;
+					i = (i == 2) ? 3 : i + 2;
 				}
 			}
-			if (num > i)
+			if (num > largest)
 			{
 				largest = num;
 			}
@@ -209,6 +237,60 @@ namespace Solution
 		#endregion
 
 		#region Helper Functions
+
+		public static long findFactorsCount(Dictionary<long, long> factors)
+		{
+			long count = 1;
+			foreach (KeyValuePair<long, long> item in factors)
+			{
+				count *= item.Value + 1;
+			}
+			return count;
+		}
+		public static Dictionary<long, long> findPrimeFactors(long num)
+		{
+
+			long factor = 2;
+			Dictionary<long, long> dFactors = new Dictionary<long, long>(); //Prime,Pow
+
+			long fac;
+			long largestFac = 0;
+			while (factor * factor <= num)
+			{
+				if (num % factor == 0)
+				{
+					num = num / factor;
+					largestFac = factor;
+					if (dFactors.TryGetValue(factor, out fac))
+					{
+						dFactors[factor] = dFactors[factor] + 1;
+					}
+					else
+					{
+						dFactors.Add(factor, 1);
+					}
+				}
+				else
+				{
+					factor = (factor == 2) ? 3 : factor + 2;
+				}
+			}
+
+			// num is a prime
+			if (num >= largestFac)
+			{
+				if (dFactors.TryGetValue(num, out fac))
+				{
+					dFactors[num] = dFactors[num] + 1;
+				}
+				else
+				{
+					dFactors.Add(num, 1);
+				}
+			}
+
+			return dFactors;
+		}
 
 		public static List<int> ESieve(int max)
 		{
