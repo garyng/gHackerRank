@@ -159,6 +159,21 @@ namespace Solution
 
 		}
 
+		public static void DiwaliLights(string input)
+		{
+			//The first line contains the number of test cases T, T lines follow. 
+			//Each line contains an integer N, the number of bulbs in the serial light bulb set.
+
+			long num = long.Parse(input);
+			long pow = 1;
+			for (int i = 0; i < num; i++)
+			{
+				pow = (pow << 1) % 100000;
+			}
+			Console.WriteLine(pow - 1);
+
+		}
+
 		#endregion
 
 		#region Project Euler
