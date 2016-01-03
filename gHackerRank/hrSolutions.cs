@@ -113,6 +113,24 @@ namespace Solution
 			Console.WriteLine(num);
 		}
 
+		public static void StrangeGrid(string input)
+		{
+			//There will be two integers r and c separated by a single space.
+
+			List<long> val = convertToList(input, new Func<string, long>(item => long.Parse(item)));
+			long row = val[0];
+			long col = val[1];
+
+			long num = 0;
+
+			// long typed / 2 -> Floored
+			num = 2 * col - (row % 2 == 0 ? 1 : 2) + ((row - 1) / 2) * 10;
+
+			Console.WriteLine(num);
+
+		}
+
+
 		#endregion
 
 		#region Project Euler
