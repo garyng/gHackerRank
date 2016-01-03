@@ -81,7 +81,6 @@ namespace Solution
 
 		#endregion
 
-
 		#region Project Euler
 
 		public static void euler001(string input)
@@ -108,11 +107,48 @@ namespace Solution
 
 		}
 
+		public static void euler002(string input, List<long> fibCache)
+		{
+			//First line contains T that denotes the number of test cases. This is followed by T lines, each containing an integer, N.
+			long max = long.Parse(input);
+
+			int j = 2;
+			long sum = 0;
+			while (fibCache[j] <= max)
+			{
+				sum += fibCache[j];
+				j += 3;
+			}
+			Console.WriteLine(sum);
+		}
+
 		#endregion
 
 		#endregion
 
 		#region Helper Functions
+
+		public static List<long> cacheFibonacci(int n)
+		{
+			List<long> fibCache = new List<long>();
+			fibCache.Add(1);
+			fibCache.Add(1);
+			for (int i = 2; i < 100; i++)
+			{
+				fibCache.Add(fibCache[i - 1] + fibCache[i - 2]);
+			}
+			return fibCache;
+		}
+		public static long Fibonacci(long n)
+		{
+			double sqrt5 = Math.Sqrt(5);
+			double phi = (1 - sqrt5) / 2.0;
+			double Phi = (1 + sqrt5) / 2.0;
+
+			double fib = (Math.Pow(Phi, (double)n) - Math.Pow(phi, (double)n)) / sqrt5;
+			return (long)fib;
+
+		}
 
 		public static BigInteger arithmeticSum(BigInteger a, BigInteger d, BigInteger n)
 		{
