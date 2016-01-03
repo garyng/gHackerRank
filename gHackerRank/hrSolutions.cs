@@ -59,6 +59,19 @@ namespace Solution
 			Console.WriteLine(num);
 		}
 
+		//The first line contains an integer T, T test-cases follow. 
+		//Each test-case has 2 lines. The first line contains an integer N (the number of towns). 
+		//The second line contains N - 1 space separated integers where the ith integer denotes the number of routes, Ni, from the town Ti to Ti+1
+		public static void ConnectingTown(string n, string r)
+		{
+			int noOfTown = int.Parse(n);
+			List<int> routes = convertToList(r, converter);
+			int mul = 1;
+			routes.ForEach((item) => mul = mul * item % 1234567);	// (a*b) mod c = (a mod c)*(b mod c)
+			Console.WriteLine(mul);
+		}
+
+
 		#endregion
 
 		#region Helper Functions
