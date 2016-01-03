@@ -14,29 +14,31 @@ namespace Solution
 
 		#region Mathematic>Fundamentals
 
-		//The first line contains an integer T representing the number of testcases 
-		//Each test case is a line containing four space separated integers Px Py Qx Qy representing the (x,y) coordinates of P and Q.
 		public static void FindPoint(string input)
 		{
+			//The first line contains an integer T representing the number of testcases 
+			//Each test case is a line containing four space separated integers Px Py Qx Qy representing the (x,y) coordinates of P and Q.
+
 			List<int> points = input.Split(' ').ToList().Select(item => int.Parse(item)).ToList();
 			int x = points[2] * 2 - points[0];
 			int y = points[3] * 2 - points[1];
 			Console.WriteLine(x + " " + y);
 		}
 
-		//The first line contains the number of test cases T. 
-		//Next T lines contains an integer N which indicates the total pairs of socks present in the drawer.
 		public static void MinimumDraws(string input)
 		{
+			//The first line contains the number of test cases T. 
+			//Next T lines contains an integer N which indicates the total pairs of socks present in the drawer.
+
 			int num = int.Parse(input);
 			Console.WriteLine(num + 1);
 		}
 
-		//First line contains integers L,S1,S2. 
-		//Next line contains Q, the number of queries. 
-		//Each of the next Q lines consists of one integer qi in one line.
 		public static void SherlockAndMovingTiles(string input, int speed1, int speed2, int length)
 		{
+			//First line contains integers L,S1,S2. 
+			//Next line contains Q, the number of queries. 
+			//Each of the next Q lines consists of one integer qi in one line.
 
 			double area = double.Parse(input);
 			double p = (speed1 - speed2) / Math.Sqrt(2);
@@ -45,28 +47,31 @@ namespace Solution
 			Console.WriteLine(Math.Abs(t));
 		}
 
-		//The first line contains an integer, T, followed by T lines, each containing 4 space separated integers i.e. a b x y
 		public static void PossiblePath(string input)
 		{
+			//The first line contains an integer, T, followed by T lines, each containing 4 space separated integers i.e. a b x y
+
 			List<int> l = convertToList(input, new Func<string, int>((x) => int.Parse(x)));
 			Console.WriteLine(GCD(l[0], l[1]) == GCD(l[2], l[3]) ? "YES" : "NO");
 		}
 
-		//The first line contains an integer T. T lines follow. 
-		//Each line contains two space separated integers l and b which denote length and breadth of the bread.
 		public static void Restaurant(string input)
 		{
+			//The first line contains an integer T. T lines follow. 
+			//Each line contains two space separated integers l and b which denote length and breadth of the bread.
+
 			List<int> l = convertToList(input, converter);
 			int largest = GCD(l[0], l[1]);
 			int num = l[0] * l[1] / (largest * largest);
 			Console.WriteLine(num);
 		}
 
-		//The first line contains an integer T, T test-cases follow. 
-		//Each test-case has 2 lines. The first line contains an integer N (the number of towns). 
-		//The second line contains N - 1 space separated integers where the ith integer denotes the number of routes, Ni, from the town Ti to Ti+1
 		public static void ConnectingTown(string n, string r)
 		{
+			//The first line contains an integer T, T test-cases follow. 
+			//Each test-case has 2 lines. The first line contains an integer N (the number of towns). 
+			//The second line contains N - 1 space separated integers where the ith integer denotes the number of routes, Ni, from the town Ti to Ti+1
+
 			int noOfTown = int.Parse(n);
 			List<int> routes = convertToList(r, converter);
 			int mul = 1;
@@ -81,6 +86,8 @@ namespace Solution
 
 		public static void euler001(string input)
 		{
+			//First line contains T that denotes the number of test cases. This is followed by T lines, each containing an integer, N.
+
 			BigInteger max = BigInteger.Parse(input) - 1;
 			BigInteger mul1 = 3;
 			BigInteger mul2 = 5;
