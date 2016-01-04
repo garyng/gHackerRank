@@ -186,6 +186,21 @@ namespace Solution
 			Console.WriteLine(rem);
 		}
 
+		public static void SumarAndTheFloatingRocks(string input)
+		{
+			//The first line contains a single integer T, the number of test cases. T lines follow. 
+			//Each of the following T lines contains one test case each. Each test case contains 4 integers x1, y1, x2 and y2 separated by a single space.
+
+			List<long> val = convertToList<long>(input, new Func<string, long>(item => long.Parse(item)));
+			long dx = val[0] - val[2];
+			long dy = val[1] - val[3];
+
+			long gcd = GCD(Math.Abs(dx), Math.Abs(dy));
+
+			Console.WriteLine(gcd - 1);
+
+		}
+
 		#endregion
 
 		#region Project Euler
@@ -376,6 +391,22 @@ namespace Solution
 			int x = a;
 			int y = b;
 			int temp = 0;
+
+			while (y != 0)
+			{
+				temp = x;
+				x = y;
+				y = temp % y;
+
+			}
+
+			return x;
+		}
+		public static long GCD(long a, long b)
+		{
+			long x = a;
+			long y = b;
+			long temp = 0;
 
 			while (y != 0)
 			{
