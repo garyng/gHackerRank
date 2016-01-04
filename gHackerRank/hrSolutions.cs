@@ -201,6 +201,16 @@ namespace Solution
 
 		}
 
+		public static void HalloweenParty(string input)
+		{
+			//The first line contains an integer T, the number of test cases. T lines follow.
+			//Each line contains an integer K.
+
+			long cut = long.Parse(input);
+			long num = (cut % 2 == 0) ? ((cut / 2) * (cut / 2)) : ((cut + 1) / 2 * ((cut + 1) / 2 - 1));
+			Console.WriteLine(num);
+		}
+
 		#endregion
 
 		#region Project Euler
