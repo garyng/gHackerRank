@@ -316,6 +316,22 @@ namespace Solution
 
 		}
 
+		public static void UtopianTree(string input)
+		{
+			//https://www.hackerrank.com/challenges/utopian-tree
+			//The first line contains an integer, T, the number of test cases. 
+			//T subsequent lines each contain an integer, N, denoting the number of cycles for that test case.
+
+			long cycle = long.Parse(input);
+			long height = 1;
+			for (long i = 0; i < cycle; i++)
+			{
+				height = (i % 2 == 0) ? height * 2 : height + 1;
+			}
+
+			Console.WriteLine(height);
+		}
+
 		#endregion
 
 		#region Project Euler
