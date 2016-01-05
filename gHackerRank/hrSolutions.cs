@@ -267,6 +267,55 @@ namespace Solution
 			}
 		}
 
+		public static void BusStation()
+		{
+			//https://www.hackerrank.com/challenges/bus-station
+			//The first line contains an integer n (1≤n≤105). The second line contains n space-separated integers a1,a2,…,an (1≤ai≤104).
+
+			long groupCount = long.Parse(Console.ReadLine());
+			List<long> lGroupSize = convertToList<long>(Console.ReadLine(), new Func<string, long>(item => long.Parse(item)));
+			List<long> lCumulativeSum = new List<long>();
+			HashSet<long> hsCumulativeSum = new HashSet<long>();
+
+
+			lCumulativeSum.Add(lGroupSize.First());
+			hsCumulativeSum.Add(lGroupSize.First());
+
+			long sum = 0;
+			for (int i = 1; i < groupCount; i++)
+			{
+				sum = lCumulativeSum[i - 1] + lGroupSize[i];
+				lCumulativeSum.Add(sum);
+				hsCumulativeSum.Add(sum);
+			}
+
+			long cumulativeSum = lCumulativeSum.Last();
+
+			List<long> divisors = findAllDivisors(cumulativeSum);
+			divisors.Sort();
+
+			List<long> ans = new List<long>();
+
+			foreach (long div in divisors)
+			{
+				long k = 1;
+				while (k * div <= cumulativeSum)
+				{
+					if (!hsCumulativeSum.Contains(k * div))
+					{
+						break;
+					}
+					if (k * div == cumulativeSum)
+					{
+						ans.Add(div);
+					}
+					k++;
+				}
+			}
+			Console.WriteLine(string.Join(" ", ans));
+
+		}
+
 		#endregion
 
 		#region Project Euler
@@ -402,6 +451,26 @@ namespace Solution
 			}
 
 			return dFactors;
+		}
+		public static List<long> findAllDivisors(long num)
+		{
+			List<long> divisors = new List<long>();
+
+			long div = 1;
+			while (div * div <= num)
+			{
+				if (num % div == 0)
+				{
+					divisors.Add(div);
+					if (num / div != div)	// Duplicate when num is a perfect square
+					{
+						divisors.Add(num / div);
+					}
+				}
+				div++;
+			}
+
+			return divisors;
 		}
 
 		public static List<int> ESieve(int max)

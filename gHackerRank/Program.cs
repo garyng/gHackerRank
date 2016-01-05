@@ -5,6 +5,7 @@ using System.Text;
 using System.Numerics;
 using System.Collections;
 using System.Net;
+using System.Diagnostics;
 
 namespace Solution
 {
@@ -21,9 +22,6 @@ namespace Solution
 
 			Console.ReadKey();
 		}
-
-
-
 		
 		public static List<T> convertToList<T>(string input, Func<string, T> converter)
 		{
