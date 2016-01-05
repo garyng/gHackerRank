@@ -235,6 +235,22 @@ namespace Solution
 
 		}
 
+		public static void IsFibo(string input, List<long> fibCache)
+		{
+			//The first line contains T, number of test cases. 
+			//T lines follow. Each line contains an integer N.
+
+			long num = long.Parse(input);
+			if (fibCache.IndexOf(num) >= 0)
+			{
+				Console.WriteLine("IsFibo");
+			}
+			else
+			{
+				Console.WriteLine("IsNotFibo");
+			}
+		}
+
 		#endregion
 
 		#region Project Euler
@@ -392,6 +408,21 @@ namespace Solution
 			return primes;
 		}
 
+		public static List<long> cacheFibonacci(long max)
+		{
+			List<long> fibCache = new List<long>();
+			fibCache.Add(0);
+			fibCache.Add(1);
+
+			int i = 2;
+			while (fibCache.Last() < max)
+			{
+				fibCache.Add(fibCache[i - 1] + fibCache[i - 2]);
+				i++;
+			}
+
+			return fibCache;
+		}
 		public static List<long> cacheFibonacci(int n)
 		{
 			List<long> fibCache = new List<long>();
