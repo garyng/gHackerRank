@@ -17,6 +17,7 @@ namespace Solution
 
 		public static void FindPoint(string input)
 		{
+			//https://www.hackerrank.com/challenges/find-point
 			//The first line contains an integer T representing the number of testcases 
 			//Each test case is a line containing four space separated integers Px Py Qx Qy representing the (x,y) coordinates of P and Q.
 
@@ -28,6 +29,7 @@ namespace Solution
 
 		public static void MinimumDraws(string input)
 		{
+			//https://www.hackerrank.com/challenges/minimum-draws
 			//The first line contains the number of test cases T. 
 			//Next T lines contains an integer N which indicates the total pairs of socks present in the drawer.
 
@@ -37,6 +39,7 @@ namespace Solution
 
 		public static void SherlockAndMovingTiles(string input, int speed1, int speed2, int length)
 		{
+			//https://www.hackerrank.com/challenges/sherlock-and-moving-tiles
 			//First line contains integers L,S1,S2. 
 			//Next line contains Q, the number of queries. 
 			//Each of the next Q lines consists of one integer qi in one line.
@@ -50,6 +53,7 @@ namespace Solution
 
 		public static void PossiblePath(string input)
 		{
+			//https://www.hackerrank.com/challenges/possible-path
 			//The first line contains an integer, T, followed by T lines, each containing 4 space separated integers i.e. a b x y
 
 			List<int> l = convertToList(input, new Func<string, int>((x) => int.Parse(x)));
@@ -58,6 +62,7 @@ namespace Solution
 
 		public static void Restaurant(string input)
 		{
+			//https://www.hackerrank.com/challenges/restaurant
 			//The first line contains an integer T. T lines follow. 
 			//Each line contains two space separated integers l and b which denote length and breadth of the bread.
 
@@ -69,6 +74,7 @@ namespace Solution
 
 		public static void ConnectingTown(string n, string r)
 		{
+			//https://www.hackerrank.com/challenges/connecting-towns
 			//The first line contains an integer T, T test-cases follow. 
 			//Each test-case has 2 lines. The first line contains an integer N (the number of towns). 
 			//The second line contains N - 1 space separated integers where the ith integer denotes the number of routes, Ni, from the town Ti to Ti+1
@@ -82,6 +88,7 @@ namespace Solution
 
 		public static void Handshake(string input)
 		{
+			//https://www.hackerrank.com/challenges/handshake
 			//The first line contains the number of test cases T, T lines follow. 
 			//Each line then contains an integer N, the total number of Board of Directors of Acme.
 			int num = int.Parse(input);
@@ -91,6 +98,7 @@ namespace Solution
 
 		public static void ReverseGame(string input)
 		{
+			//https://www.hackerrank.com/challenges/reverse-game
 			//The first line contains an integer T, i.e., the number of the test cases. 
 			//The next T lines will contain two integers N and K.
 
@@ -115,6 +123,7 @@ namespace Solution
 
 		public static void StrangeGrid(string input)
 		{
+			//https://www.hackerrank.com/challenges/strange-grid
 			//There will be two integers r and c separated by a single space.
 
 			List<long> val = convertToList(input, new Func<string, long>(item => long.Parse(item)));
@@ -132,6 +141,7 @@ namespace Solution
 
 		public static void SherlockAndDivisors(string input)
 		{
+			//https://www.hackerrank.com/challenges/sherlock-and-divisors
 			//First line contains T, the number of testcases. This is followed by T lines each containing an integer N.
 
 			long num = long.Parse(input);
@@ -161,6 +171,7 @@ namespace Solution
 
 		public static void DiwaliLights(string input)
 		{
+			//https://www.hackerrank.com/challenges/diwali-lights
 			//The first line contains the number of test cases T, T lines follow. 
 			//Each line contains an integer N, the number of bulbs in the serial light bulb set.
 
@@ -176,6 +187,7 @@ namespace Solution
 
 		public static void SummingTheNSeries(string input)
 		{
+			//https://www.hackerrank.com/challenges/summing-the-n-series
 			//The first line of input contains T, the number of test cases.
 			//Each test case consists of one line containing a single integer n.
 
@@ -188,6 +200,7 @@ namespace Solution
 
 		public static void SumarAndTheFloatingRocks(string input)
 		{
+			//https://www.hackerrank.com/challenges/harry-potter-and-the-floating-rocks
 			//The first line contains a single integer T, the number of test cases. T lines follow. 
 			//Each of the following T lines contains one test case each. Each test case contains 4 integers x1, y1, x2 and y2 separated by a single space.
 
@@ -203,6 +216,7 @@ namespace Solution
 
 		public static void HalloweenParty(string input)
 		{
+			//https://www.hackerrank.com/challenges/halloween-party
 			//The first line contains an integer T, the number of test cases. T lines follow.
 			//Each line contains an integer K.
 
@@ -213,6 +227,7 @@ namespace Solution
 
 		public static void FillingJars()
 		{
+			//https://www.hackerrank.com/challenges/filling-jars
 			//The first line contains two integers, N and M, separated by a single space. 
 			//M lines follow; each of them contains three integers, a, b, and k, separated by spaces.
 
@@ -237,6 +252,7 @@ namespace Solution
 
 		public static void IsFibo(string input, List<long> fibCache)
 		{
+			//https://www.hackerrank.com/challenges/is-fibo
 			//The first line contains T, number of test cases. 
 			//T lines follow. Each line contains an integer N.
 
@@ -257,6 +273,7 @@ namespace Solution
 
 		public static void euler001(string input)
 		{
+			//https://www.hackerrank.com/contests/projecteuler/challenges/euler001
 			//First line contains T that denotes the number of test cases. This is followed by T lines, each containing an integer, N.
 
 			BigInteger max = BigInteger.Parse(input) - 1;
@@ -281,7 +298,9 @@ namespace Solution
 
 		public static void euler002(string input, List<long> fibCache)
 		{
+			//https://www.hackerrank.com/contests/projecteuler/challenges/euler002
 			//First line contains T that denotes the number of test cases. This is followed by T lines, each containing an integer, N.
+
 			long max = long.Parse(input);
 
 			int j = 2;
@@ -296,6 +315,7 @@ namespace Solution
 
 		public static void euler003(string input)
 		{
+			//https://www.hackerrank.com/contests/projecteuler/challenges/euler003
 			//First line contains T, the number of test cases. This is followed by T lines each containing an integer N.
 			//Find largest prime factor
 
