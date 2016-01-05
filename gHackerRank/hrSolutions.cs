@@ -211,6 +211,30 @@ namespace Solution
 			Console.WriteLine(num);
 		}
 
+		public static void FillingJars()
+		{
+			//The first line contains two integers, N and M, separated by a single space. 
+			//M lines follow; each of them contains three integers, a, b, and k, separated by spaces.
+
+			List<long> val = convertToList<long>(Console.ReadLine(), new Func<string, long>(item => long.Parse(item)));
+			long jarNum = val[0];
+			long count = val[1];
+			long sum = 0;
+			for (long i = 0; i < count; i++)
+			{
+				val = convertToList<long>(Console.ReadLine(), new Func<string, long>(item => long.Parse(item)));
+				long startIndex = val[0];
+				long endIndex = val[1];
+				long fillNum = val[2];
+
+				sum += (endIndex - startIndex + 1) * fillNum;
+			}
+			long avg = sum / jarNum;
+
+			Console.WriteLine(avg);
+
+		}
+
 		#endregion
 
 		#region Project Euler

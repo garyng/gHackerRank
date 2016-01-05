@@ -18,11 +18,12 @@ namespace Solution
 			{
 				string input = Console.ReadLine();
 			}
+
 			Console.ReadKey();
 		}
 
 
-		public static List<T> convertToList<T>(string input, Func<string, T> converter)
+		public static List<T> convertToList<T>(string input, Func<string, T> converter) 
 		{
 			List<T> l = input.Split(' ').ToList().Select(item => converter(item)).ToList();
 			return l;
