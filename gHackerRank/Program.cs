@@ -18,11 +18,10 @@ namespace Solution
 			for (int i = 0; i < num; i++)
 			{
 				string input = Console.ReadLine();
+				
 			}
-
 			Console.ReadKey();
 		}
-		
 
 		public static List<T> convertToList<T>(string input, Func<string, T> converter)
 		{

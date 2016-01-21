@@ -332,6 +332,36 @@ namespace Solution
 			Console.WriteLine(height);
 		}
 
+		public static void KCandyStore()
+		{
+			//https://www.hackerrank.com/challenges/k-candy-store
+			//The first line contains an integer T, the number of tests. 
+			//This is followed by 2T lines which contain T tests: 
+			//The first line(of each testcase) is an integer N and the second line (of each testcase) is an integer K.
+
+			BigInteger types = BigInteger.Parse(Console.ReadLine());
+			BigInteger choose = BigInteger.Parse(Console.ReadLine());
+
+			BigInteger n = choose + types - 1;
+			BigInteger r = types - 1;
+
+			BigInteger nCrN = 1;
+			BigInteger nCrR = 1;
+
+			while (r > 0)
+			{
+				nCrN *= n;
+				nCrR *= r;
+				n--;
+				r--;
+			}
+
+			BigInteger nCr = BigInteger.Divide(nCrN, nCrR);
+			nCr = BigInteger.Remainder(nCr, 1000000000);
+			Console.WriteLine(nCr.ToString());
+
+		}
+
 		#endregion
 
 		#region Project Euler
