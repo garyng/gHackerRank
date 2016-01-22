@@ -362,6 +362,37 @@ namespace Solution
 
 		}
 
+		public static void DieHard3(string input)
+		{
+			//https://www.hackerrank.com/challenges/die-hard-3
+			//First line contains the number of testcases T. T lines follow.
+			//Each line contains 3 space separated integers a, b and c .
+			//a and b indicate the capacity of the two jugs respectively, and c denotes the exact capacity with which one of the jugs should be filled.
+
+			List<int> vals = convertToList<int>(input, converter);
+			int a = vals[0];
+			int b = vals[1];
+			int target = vals[2];
+
+			int g = GCD(a, b);
+			if (target > a && target > b)
+			{
+				Console.WriteLine("NO");
+			}
+			else
+			{
+				if (target % g != 0)
+				{
+					Console.WriteLine("NO");
+				}
+				else
+				{
+					Console.WriteLine("YES");
+				}
+			}
+
+		}
+
 		#endregion
 
 		#region Project Euler

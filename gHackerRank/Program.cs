@@ -18,7 +18,6 @@ namespace Solution
 			for (int i = 0; i < num; i++)
 			{
 				string input = Console.ReadLine();
-				
 			}
 			Console.ReadKey();
 		}
