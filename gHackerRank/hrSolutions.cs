@@ -393,6 +393,41 @@ namespace Solution
 
 		}
 
+		public static void SherlockandPermutations(string input)
+		{
+			//https://www.hackerrank.com/challenges/sherlock-and-permutations
+			//First line contains T, the number of test cases. 
+			//Each test case consists of N and M separated by a space.
+
+			List<int> vals = convertToList<int>(input, converter);
+			int N = vals[0];
+			int M = vals[1];
+
+			int numeratorFac = N + (M - 1);
+			int denominatorNFac = N;
+			int denominatorMFac = M - 1;
+
+			BigInteger nr = 1;
+			BigInteger dr = 1;
+
+			while (numeratorFac > 0)
+			{
+				nr *= numeratorFac;
+				numeratorFac--;
+
+				dr *= denominatorNFac <= 0 ? 1 : denominatorNFac;
+				denominatorNFac--;
+
+				dr *= denominatorMFac <= 0 ? 1 : denominatorMFac;
+				denominatorMFac--;
+			}
+
+			BigInteger fac = BigInteger.Divide(nr, dr);
+			fac = BigInteger.Remainder(fac, 1000000007);
+			Console.WriteLine(fac.ToString());
+
+		}
+
 		#endregion
 
 		#region Project Euler
