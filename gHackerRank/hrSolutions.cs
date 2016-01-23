@@ -82,7 +82,7 @@ namespace Solution
 			int noOfTown = int.Parse(n);
 			List<int> routes = convertToList(r, converter);
 			int mul = 1;
-			routes.ForEach((item) => mul = mul * item % 1234567);	// (a*b) mod c = (a mod c)*(b mod c)
+			routes.ForEach((item) => mul = mul * item % 1234567);   // (a*b) mod c = (a mod c)*(b mod c)
 			Console.WriteLine(mul);
 		}
 
@@ -449,6 +449,23 @@ namespace Solution
 			}
 		}
 
+		public static void MatrixTracing(string input)
+		{
+			//https://www.hackerrank.com/challenges/matrix-tracing
+			//The first line of input contains an integer T.T test cases follow. 
+			//Each test case contains 2 space separated integers m &n(in a new line) indicating that the matrix has m rows and each row has n characters.
+
+			List<long> vals = convertToList<long>(input, new Func<string, long>(item => long.Parse(item)));
+
+			long m = vals[0];
+			long n = vals[1];
+
+			long nC = m + n - 1 - 1;
+			long Cr = n - 1;
+
+			Console.WriteLine(nCr(nC, Cr, 1000000007));
+		}
+
 		#endregion
 
 		#region Project Euler
@@ -532,6 +549,51 @@ namespace Solution
 
 		#region Helper Functions
 
+		public static long nCr(long n, long r, long p)
+		{
+			//nCr mod p, p is a prime
+			//n<=r
+			long a = 1;
+			long b = 1;
+
+			while (r > 0)
+			{
+				a *= n;
+				a %= p;
+				n--;
+
+				b *= r;
+				b %= p;
+				r--;
+			}
+
+			b = powWithMod(b, p - 2, p) % p;
+
+			return (a * b) % p;
+
+		}
+
+		public static long powWithMod(long a, long n, long p)
+		{
+			//Exponentiation by Squaring
+			//https://en.wikipedia.org/wiki/Exponentiation_by_squaring
+
+			long result = 1;
+			while (n > 0)
+			{
+				if (n % 2 == 1)
+				{
+					result *= a;
+					result %= p;
+					n--;
+				}
+				a *= a;
+				a %= p;
+				n /= 2;
+			}
+			return result % p;
+		}
+
 		public static long findFactorsCount(Dictionary<long, long> factors)
 		{
 			long count = 1;
@@ -595,7 +657,7 @@ namespace Solution
 				if (num % div == 0)
 				{
 					divisors.Add(div);
-					if (num / div != div)	// Duplicate when num is a perfect square
+					if (num / div != div)   // Duplicate when num is a perfect square
 					{
 						divisors.Add(num / div);
 					}
