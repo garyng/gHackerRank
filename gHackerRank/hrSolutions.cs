@@ -428,6 +428,27 @@ namespace Solution
 
 		}
 
+		public static void SpecialMultiple(string input)
+		{
+			//https://www.hackerrank.com/challenges/special-multiple
+			//The first line contains an integer T which denotes the number of test cases. T lines follow. 
+			//Each line contains the integer N for which the solution has to be found.
+
+			int n = int.Parse(input);
+			double max = Math.Pow(2, 13);
+
+			for (int i = 1; i < max; i++)
+			{
+				long b = long.Parse(Convert.ToString(i, 2)) * 9;
+
+				if (b % n == 0)
+				{
+					Console.WriteLine(b.ToString());
+					break;
+				}
+			}
+		}
+
 		#endregion
 
 		#region Project Euler
